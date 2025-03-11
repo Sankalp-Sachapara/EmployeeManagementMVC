@@ -1,0 +1,78 @@
+@model Employee
+
+@{
+    ViewData["Title"] = "Browse Employees";
+    int currentPosition = ViewBag.CurrentPosition;
+    int totalEmployees = ViewBag.TotalEmployees;
+    bool hasPrevious = ViewBag.HasPrevious;
+    bool hasNext = ViewBag.HasNext;
+}
+
+<h1>Browse Employees</h1>
+<p>Showing employee @(currentPosition + 1) of @totalEmployees</p>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h4>@Model.FullName</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.EmployeeId)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.JobTitle)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-8">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item @(hasPrevious ? "" : "disabled")">
+                            <a class="page-link" asp-action="Browse" asp-route-position="0">&laquo; First</a>
+                        </li>
+                        <li class="page-item @(hasPrevious ? "" : "disabled")">
+                            <a class="page-link" asp-action="Browse" asp-route-position="@(currentPosition - 1)">&lsaquo; Previous</a>
+                        </li>
+                        <li class="page-item @(hasNext ? "" : "disabled")">
+                            <a class="page-link" asp-action="Browse" asp-route-position="@(currentPosition + 1)">Next &rsaquo;</a>
+                        </li>
+                        <li class="page-item @(hasNext ? "" : "disabled")">
+                            <a class="page-link" asp-action="Browse" asp-route-position="@(totalEmployees - 1)">Last &raquo;</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-4 text-end">
+                <a asp-action="Edit" asp-route-id="@Model.EmployeeId" class="btn btn-warning">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">View All</a>
+            </div>
+        </div>
+    </div>
+</div>
