@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeManagement.Models
+namespace Sankalp_vraj_assignment_3.Models
 {
     public class Employee
     {
