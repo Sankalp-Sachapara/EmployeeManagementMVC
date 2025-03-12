@@ -1,10 +1,10 @@
-using EmployeeManagement.Data;
-using EmployeeManagement.Models;
+using Sankalp_vraj_assignment_3.Data;
+using Sankalp_vraj_assignment_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace EmployeeManagement.Controllers
+namespace Sankalp_vraj_assignment_3.Controllers
 {
     public class EmployeesController : Controller
     {
