@@ -16,6 +16,12 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
+        // Add the Create action - redirects to Employees/Create
+        public IActionResult Create()
+        {
+            return RedirectToAction("Create", "Employees");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
