@@ -6,8 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Add explicit DbContext configuration with hardcoded connection string
-string connectionString = "Server=(localdb)\\mssqllocaldb;Database=EmployeeManagementDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+// Get the connection string from configuration, or use a default if not found
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? 
+                        "Server=(localdb)\\mssqllocaldb;Database=EmployeeManagementDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+
+// Add DbContext configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
@@ -38,11 +41,17 @@ using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<ApplicationDbContext>();
+        
+        // This will ensure the database is created
         context.Database.EnsureCreated();
+        
+        // Log or display success message
+        Console.WriteLine("Database checked and created if needed.");
     }
     catch (Exception ex)
     {
-        Console.WriteLine("An error occurred while creating the database: " + ex.Message);
+        // Log the error - this will help identify the issue
+        Console.WriteLine($"An error occurred while ensuring the database exists: {ex.Message}");
     }
 }
 
