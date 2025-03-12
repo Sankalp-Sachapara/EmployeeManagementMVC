@@ -14,14 +14,7 @@ namespace EmployeeManagement.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
-            // Configure Employee entity
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.Salary)
-                .HasColumnType("decimal(18,2)");
-
-            // Optional: Seed some initial data
+            // Seed some initial data
             modelBuilder.Entity<Employee>().HasData(
                 new Employee
                 {
