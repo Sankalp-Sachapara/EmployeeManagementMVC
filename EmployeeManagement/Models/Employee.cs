@@ -23,6 +23,14 @@ namespace EmployeeManagement.Models
         [Display(Name = "Salary")]
         public decimal Salary { get; set; }
 
+        // Constructor to initialize string properties
+        public Employee()
+        {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            JobTitle = string.Empty;
+        }
+
         // Computed property for full name
         [Display(Name = "Employee Name")]
         public string FullName 
