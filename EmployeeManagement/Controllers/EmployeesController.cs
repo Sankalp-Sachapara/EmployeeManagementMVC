@@ -2,6 +2,7 @@ using EmployeeManagement.Data;
 using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace EmployeeManagement.Controllers
 {
@@ -17,7 +18,13 @@ namespace EmployeeManagement.Controllers
         // GET: Employees
         public IActionResult Index()
         {
-            return View(_context.Employees.ToList());
+            var employees = _context.Employees.ToList();
+            // Return empty list instead of null if no employees found
+            if (employees == null)
+            {
+                employees = new List<Employee>();
+            }
+            return View(employees);
         }
 
         // GET: Employees/Details/5
@@ -142,9 +149,9 @@ namespace EmployeeManagement.Controllers
         {
             var employees = _context.Employees.ToList();
             
-            if (employees.Count == 0)
+            if (employees == null || employees.Count == 0)
             {
-                return View("Index", employees);
+                return View("Index", new List<Employee>());
             }
 
             int pos = position ?? 0;
