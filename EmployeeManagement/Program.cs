@@ -29,7 +29,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Employees}/{action=Index}/{id?}");
+    pattern: "{controller=Employees}/{action=Dashboard}/{id?}");
 
 // Ensure the database is created when the application starts
 using (var scope = app.Services.CreateScope())
