@@ -2,31 +2,22 @@ using EmployeeManagement.Data;
 using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace EmployeeManagement.Controllers
 {
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly ILogger<EmployeesController> _logger;
 
-        public EmployeesController(ApplicationDbContext context, ILogger<EmployeesController> logger)
+        public EmployeesController(ApplicationDbContext context)
         {
             _context = context;
-            _logger = logger;
         }
 
         // GET: Employees
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employees.ToListAsync());
-        }
-
-        // GET: Employees/Dashboard
-        public IActionResult Dashboard()
-        {
-            return View();
         }
 
         // GET: Employees/Details/5
@@ -177,17 +168,6 @@ namespace EmployeeManagement.Controllers
             ViewBag.HasNext = pos < employees.Count - 1;
 
             return View(employees[pos]);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         private bool EmployeeExists(int id)
