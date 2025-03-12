@@ -46,7 +46,6 @@ namespace EmployeeManagement.Controllers
 
         // POST: Employees/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("FirstName,LastName,JobTitle,Salary")] Employee employee)
         {
             if (ModelState.IsValid)
@@ -76,7 +75,6 @@ namespace EmployeeManagement.Controllers
 
         // POST: Employees/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("EmployeeId,FirstName,LastName,JobTitle,Salary")] Employee employee)
         {
             if (id != employee.EmployeeId)
@@ -127,7 +125,6 @@ namespace EmployeeManagement.Controllers
 
         // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             var employee = _context.Employees.Find(id);
