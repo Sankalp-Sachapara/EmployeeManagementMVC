@@ -14,6 +14,13 @@ namespace EmployeeManagement.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            // Configure Auto-increment for EmployeeId
+            modelBuilder.Entity<Employee>()
+                .Property(e => e.EmployeeId)
+                .ValueGeneratedOnAdd();
+
             // Seed some initial data
             modelBuilder.Entity<Employee>().HasData(
                 new Employee
