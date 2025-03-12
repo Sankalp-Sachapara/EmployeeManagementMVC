@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Employee Management Dashboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Employee Management System</h1>
+    <p>This application allows you to manage employee data efficiently.</p>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    View All Employees
+                </div>
+                <div class="card-body">
+                    <p>See a complete list of all employees in a table format.</p>
+                    <a asp-controller="Employees" asp-action="Index" class="btn btn-primary">View Employees</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Browse Employees
+                </div>
+                <div class="card-body">
+                    <p>Browse through employees one by one.</p>
+                    <a asp-controller="Employees" asp-action="Browse" class="btn btn-success">Browse Employees</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Add New Employee
+                </div>
+                <div class="card-body">
+                    <p>Add a new employee to the system.</p>
+                    <a asp-controller="Employees" asp-action="Create" class="btn btn-info">Add Employee</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
