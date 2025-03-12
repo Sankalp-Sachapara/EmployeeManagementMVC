@@ -1,8 +1,8 @@
-using EmployeeManagement.Models;
+using Sankalp_vraj_assignment_3.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace EmployeeManagement.Controllers
+namespace Sankalp_vraj_assignment_3.Controllers
 {
     public class HomeController : Controller
     {
