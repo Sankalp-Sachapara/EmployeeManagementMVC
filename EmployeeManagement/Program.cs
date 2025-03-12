@@ -1,4 +1,4 @@
-using EmployeeManagement.Data;
+using Sankalp_vraj_assignment_3.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 // Get the connection string from configuration, or use a default if not found
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? 
-                        "Server=(localdb)\\mssqllocaldb;Database=EmployeeManagementDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+                        "Server=(localdb)\\mssqllocaldb;Database=SankalpVrajAssignment3Db;Trusted_Connection=True;MultipleActiveResultSets=true";
 
 // Add DbContext configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
