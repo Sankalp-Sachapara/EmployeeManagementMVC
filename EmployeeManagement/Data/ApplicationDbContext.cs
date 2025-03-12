@@ -1,7 +1,7 @@
-using EmployeeManagement.Models;
+using Sankalp_vraj_assignment_3.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Data
+namespace Sankalp_vraj_assignment_3.Data
 {
     public class ApplicationDbContext : DbContext
     {
