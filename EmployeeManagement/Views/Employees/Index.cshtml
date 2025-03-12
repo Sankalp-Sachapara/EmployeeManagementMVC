@@ -31,7 +31,10 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@if (Model != null && Model.Any())
+{
+    @foreach (var item in Model) 
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.EmployeeId)
@@ -54,6 +57,13 @@
                 <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="6" class="text-center">No employees found. Please add some employees.</td>
+    </tr>
 }
     </tbody>
 </table>
