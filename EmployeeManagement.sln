@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement", "EmployeeManagement\EmployeeManagement.csproj", "{60B2D6DA-B2B4-47F1-A5F5-4C61AD9F6AE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sankalp_vraj_assignment_3", "EmployeeManagement\Sankalp_vraj_assignment_3.csproj", "{60B2D6DA-B2B4-47F1-A5F5-4C61AD9F6AE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
