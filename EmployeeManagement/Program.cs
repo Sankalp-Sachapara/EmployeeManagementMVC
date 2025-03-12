@@ -34,7 +34,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Create the database if it doesn't exist
+// Create and seed the database
 using (var scope = app.Services.CreateScope())
 {
     try
@@ -42,15 +42,14 @@ using (var scope = app.Services.CreateScope())
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<ApplicationDbContext>();
         
-        // This will ensure the database is created
+        // Drop and recreate the database to ensure seed data is applied
+        context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
         
-        // Log or display success message
-        Console.WriteLine("Database checked and created if needed.");
+        Console.WriteLine("Database recreated and seeded successfully.");
     }
     catch (Exception ex)
     {
-        // Log the error - this will help identify the issue
         Console.WriteLine($"An error occurred while ensuring the database exists: {ex.Message}");
     }
 }
